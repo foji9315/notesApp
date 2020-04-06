@@ -20,7 +20,8 @@ var usersRouter = require('./routes/users');
 
 // Connect to DB
 mongoose.set('useCreateIndex', true);
-mongoose.connect('mongodb://localhost/notes_app', { useUnifiedTopology: true, useNewUrlParser: true });
+var connection = process.env.dataBaseURL || 'mongodb://localhost/notes_app';
+mongoose.connect(connection, { useUnifiedTopology: true, useNewUrlParser: true });
 
 // Passport 
 app.use(session({
