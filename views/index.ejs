@@ -1,0 +1,16 @@
+<% include ./partials/header %>
+
+
+<div class="jumbotron container mt-5">
+  
+  <h1 class="display-4">Welcome to Notes App!</h1>
+  <p class="lead">This is a simple hero unit where you could have notes for everything</p>
+  <hr class="my-4">
+  <p>You can crate, edit, delete notes</p>
+  <% if(!currentUser) { %>
+  <a class="btn btn-primary btn-lg" href="/users/login" role="button">Log in</a>
+  <a class="btn btn-success btn-lg" href="/users/signup" role="button">Sign up</a>
+  <% } %>
+</div>
+
+<% include ./partials/footer %>
