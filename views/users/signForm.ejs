@@ -1,0 +1,18 @@
+<% include ../partials/header %>
+
+<div class="text-center container">
+  <% if(title === 'Log in') { %>
+  <form class="form-signin" action="./login" method="POST">
+    <% } else { %>
+    <form class="form-signin" action="./signup" method="POST">
+      <% } %>
+      <h1 class="h3 mb-3 font-weight-normal"><%= title %></h1>
+      <label for="inputEmail" class="sr-only">Username</label>
+      <input type="text" name="username" id="inputEmail" class="form-control" placeholder="User Name" required>
+      <label for="inputPassword" class="sr-only">Password</label>
+      <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+    </form>
+</div>
+
+<% include ../partials/footer %>

@@ -1,0 +1,41 @@
+<% include ../partials/header %>
+<div class="container">
+  <h1><%= currentUser.username %></h1>
+  <br>
+  <p>There are just current notes</p>
+
+  <% if(notes.length > 0) { %>
+  <!-- Must be a row div is requiered -->
+  <div class="card-deck mb-3 text-center">
+    <% notes.forEach(note => { %>
+    <div class="col-md-4">
+      <div class="card mb-4 shadow-sm">
+        <div class="card-header bg-info">
+          <h4 class="my-0 font-weight-normal"><%= note.title %></h4>
+        </div>
+        <div class="card-body">
+          <div class="card-body">
+            <p class="card-text">
+              <% note.body = note.body.length > 40 ? note.body.substring(0,40) + "..." : note.body + "\r\n" %>
+              <%= note.body %>
+            </p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <a class="btn btn-sm btn-outline-success" href="./notes/<%= note._id %>">View</a>
+                <a class="btn btn-sm btn-outline-info" href="./notes/<%= note._id %>/edit">Edit</a>
+                <form action="/<%= note._id %>?_method=DELETE" method="POST">
+                  <button class="btn btn-sm btn-outline-danger">Delete</button>
+                </form>
+              </div>
+              <small class="text-muted"><%= note.created.toLocaleString() %></small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% }); %>
+  </div>
+  <% } %>
+</div>
+
+<% include ../partials/footer %>
