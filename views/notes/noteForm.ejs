@@ -3,10 +3,10 @@
 <div class="container">
     <% if(note.title === "new"){ %>
         <h1>New note</h1>
-        <form action="./" method="POST">
+        <form action="/notes" method="POST">
     <% } else if(!disabled) { %>
         <h1>Edit note</h1>
-        <form action="./?_method=PUT" method="POST">
+        <form action="/notes/<%= note.id %>?_method=PUT" method="POST">
     <% } %>
         <div class="form-row">
             <div class="form-group col">
